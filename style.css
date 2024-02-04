@@ -1,0 +1,111 @@
+body {
+  display: block;
+  margin: 8px;
+  background-color: #14213d;
+  font-family: "Protest Revolution", sans-serif;
+}
+
+div {
+  display: block;
+}
+
+.meteo-app {
+  background: #ced4da;
+  max-width: 600px;
+  margin: 45px auto;
+  box-shadow: 0 30px 50px #fca311;
+  border-radius: 16px;
+  padding: 30px;
+}
+
+header {
+  display: block;
+  border-bottom: 1px solid #fca311;
+  padding: 0 0 30px 0;
+}
+
+form {
+  display: block;
+}
+
+.search-form-input {
+  background-color: #ced4da;
+  border: 1px solid #14213d;
+  border-radius: 6px;
+  width: 80%;
+  font-size: 16px;
+  padding: 15px 20px;
+}
+
+.search-form-button {
+  background: #fca311;
+  padding: 15px 30px;
+  border: none;
+  font-size: 16px;
+  margin-left: 5px;
+  border-radius: 6px;
+  color: #000000;
+}
+
+main {
+  display: block;
+  padding: 30px 0;
+}
+
+.meteo-app-data {
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+  display: block;
+  font-weight: bold;
+}
+
+.meteo-app-city {
+  margin: 0;
+  font-size: 38px;
+  line-height: 48px;
+}
+
+p {
+  display: block;
+}
+
+.meteo-app-details {
+  font-size: 16px;
+  color: #000000;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+.meteo-app-temperature-container {
+  display: flex;
+}
+
+.meteo-app-temperature {
+  font-size: 88px;
+  line-height: 88px;
+  font-weight: bold;
+}
+
+.meteo-app-unit {
+  margin-top: 6px;
+  font-size: 28px;
+}
+
+footer {
+  display: block;
+  border-top: 1px solid #fca311;
+  padding-top: 20px;
+  padding: 30 0 0 0;
+  text-align: center;
+  font-size: 14px;
+  color: #14213d;
+}
+
+a {
+  color: #fca311;
+  cursor: pointer;
+  text-decoration: none;
+}
