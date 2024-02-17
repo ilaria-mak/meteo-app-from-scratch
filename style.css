@@ -18,6 +18,17 @@ div {
   padding: 30px;
 }
 
+.meteo-app-temperature-container {
+  display: flex;
+}
+
+.meteo-app-icon {
+  width: 50px;
+  height: 50px;
+
+  margin-right: 40px;
+}
+
 header {
   display: block;
   border-bottom: 1px solid #fca311;
