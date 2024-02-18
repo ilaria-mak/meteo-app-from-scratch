@@ -69,5 +69,32 @@ function handleSearch(event) {
 
 document.getElementById("search-form").addEventListener("submit", handleSearch); //aggiunge l'evento handleSearch al form quando clicco 'submit'
 
-//STEP 4: inserisco una città di default in apertura della pagina con valori meteo reali
+//STEP 4: chiamo la funzione inserendo una città di default in apertura della pagina con valori meteo reali
 citySearch("Taranto");
+
+//STEP 7: injecta in JS il forecast attraverso un loop
+function displayForecast() {
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+  let forecastHtml = ""; //creo una variabile vuota
+
+  days.forEach(function (day) {
+    //creo il loop che associa la variabile forecast ad ogni giorno dell'array
+    forecastHtml =
+      forecastHtml +
+      `<div class="meteo-forecast-day">
+            <div class="meteo-forecast-weekday">${day}</div> 
+            <div class="meteo-forecast-icon">🌤️</div>
+            <div class="meteo-forecast-minmax">
+              <div class="meteo-forecast-temperature">
+                <strong>20°C</strong>
+              </div>
+              <div class="meteo-forecast-temperature">15°C</div>
+            </div>
+          </div>`; //in HTML avrei avuto questa struttura per ogni gg del forecast ma sarebbe overingegnerizzato, perciò la utilizzo per riempire la variabile vuota creata prima
+  });
+
+  let forecastDisplayed = document.querySelector("#forecast"); //chiamo l'id in HTML per associarlo a JS
+  forecastDisplayed.innerHTML = forecastHtml; //la nuova variabile è associata al risultato del loop (mi basterà aggiungere un gg all'array per visualizzare un altro elemento del forecast)
+}
+
+displayForecast(); //chiamo la funzione
