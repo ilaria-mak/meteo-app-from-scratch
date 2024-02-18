@@ -140,7 +140,7 @@ p {
 }
 
 .meteo-forecast-temperature {
-  padding: 0 5px;
+  padding: 0 5px; /*spazio tra la temp min e max*/
 }
 
 footer {

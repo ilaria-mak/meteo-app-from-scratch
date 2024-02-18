@@ -23,6 +23,8 @@ function displayMeteoData(response) {
   perceivedTemperatureDisplayed.innerHTML = `feels like <strong>${Math.round(
     response.data.temperature.feels_like
   )}°C</strong>`;
+
+  fetchForecast(response.data.city); //chiamo la funzione creata nello STEP 8
 }
 
 //STEP 6: Formatta la data
@@ -72,7 +74,14 @@ document.getElementById("search-form").addEventListener("submit", handleSearch);
 //STEP 4: chiamo la funzione inserendo una città di default in apertura della pagina con valori meteo reali
 citySearch("Taranto");
 
-//STEP 7: injecta in JS il forecast attraverso un loop
+//STEP 8: crea la funzione forecast che andremo a chiamare nella funzione displayMeteoData quando cerchiamo una città
+function fetchForecast(city) {
+  let apiKey = "b1943d50401398to8a0677ac9c9333f6";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`; // è diverso dal precedente
+  axios(apiUrl).then(displayForecast); //axios prende i dati del forecast e poi chiama la funzione displayForecast
+}
+
+//STEP 7: injecta in JS il forecast attraverso un loop invece di sovrascrivere HTML
 function displayForecast() {
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
   let forecastHtml = ""; //creo una variabile vuota
