@@ -7,6 +7,9 @@ function displayMeteoData(response) {
   let timeDisplayed = document.querySelector("#time");
   let date = new Date(response.data.time * 1000); //prende l'elemento 'time' dall'API associato alla data di oggi che è però espresso in millisecondi dal 1970 (moltiplico dunque per 1000)
   let iconDisplayed = document.querySelector("#icon");
+  let perceivedTemperatureDisplayed = document.querySelector(
+    "#perceived-temperature"
+  );
 
   //ogni volta che creo una variabile, la associo al rispettivo elemento in HTML che viene fatto corrispondere alle info prese dall'API
   timeDisplayed.innerHTML = dateFormatted(date); //la variabile mi ritorna la data formattata (FINE STEP 6)
@@ -17,6 +20,9 @@ function displayMeteoData(response) {
   humidityDisplayed.innerHTML = `${response.data.temperature.humidity}%`;
   windSpeedDisplayed.innerHTML = `${response.data.wind.speed} km/h`;
   iconDisplayed.innerHTML = `<img src="${response.data.condition.icon_url}" />`; //Qui utilizzo il linguaggio html per inserire un'immagine che ha la sorgente nell'API
+  perceivedTemperatureDisplayed.innerHTML = `feels like <strong>${Math.round(
+    response.data.temperature.feels_like
+  )}°C</strong>`;
 }
 
 //STEP 6: Formatta la data
