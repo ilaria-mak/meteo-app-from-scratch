@@ -107,14 +107,16 @@ p {
 
 .meteo-app-perceived-temperature {
   align-items: center;
-  margin-top: 10px;
+  margin-top: -38px;
   font-size: 14px;
+  text-align: right;
+  margin-right: 16px;
 }
 
 .meteo-forecast-container {
   display: flex;
   justify-content: space-around;
-  margin-top: 30px;
+  margin-top: 40px;
   align-items: center;
 }
 
