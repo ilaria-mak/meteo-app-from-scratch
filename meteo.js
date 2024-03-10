@@ -82,24 +82,25 @@ function fetchForecast(city) {
 }
 
 //STEP 7: injecta in JS il forecast attraverso un loop invece di sovrascrivere HTML
-function displayForecast() {
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+function displayForecast(response) {
   let forecastHtml = ""; //creo una variabile vuota
-
-  days.forEach(function (day) {
-    //creo il loop che associa la variabile forecast ad ogni giorno dell'array
+  response.data.daily.forEach(function (day) {
     forecastHtml =
       forecastHtml +
       `<div class="meteo-forecast-day">
             <div class="meteo-forecast-weekday">${day}</div> 
-            <div class="meteo-forecast-icon">🌤️</div>
+            <div class="meteo-forecast-icon"><img src="${
+              day.condition.icon_url
+            }"></div>
             <div class="meteo-forecast-minmax">
               <div class="meteo-forecast-temperature">
-                <strong>20°C</strong>
+                <strong>${Math.round(day.temperature.maximum)}°C</strong>
               </div>
-              <div class="meteo-forecast-temperature">15°C</div>
+              <div class="meteo-forecast-temperature">${Math.round(
+                day.temperature.minimum
+              )}°C</div>
             </div>
-          </div>`; //in HTML avrei avuto questa struttura per ogni gg del forecast ma sarebbe overingegnerizzato, perciò la utilizzo per riempire la variabile vuota creata prima
+       </div>`; //in HTML avrei avuto questa struttura per ogni gg del forecast ma sarebbe overingegnerizzato, perciò la utilizzo per riempire la variabile vuota creata prima
   });
 
   let forecastDisplayed = document.querySelector("#forecast"); //chiamo l'id in HTML per associarlo a JS
