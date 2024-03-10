@@ -81,14 +81,24 @@ function fetchForecast(city) {
   axios(apiUrl).then(displayForecast); //axios prende i dati del forecast e poi chiama la funzione displayForecast
 }
 
+//STEP 9:
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000); //moltiplico per mille perché é in millisecondi
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[date.getDay()];
+}
+
 //STEP 7: injecta in JS il forecast attraverso un loop invece di sovrascrivere HTML
 function displayForecast(response) {
   let forecastHtml = ""; //creo una variabile vuota
-  response.data.daily.forEach(function (day) {
-    forecastHtml =
-      forecastHtml +
-      `<div class="meteo-forecast-day">
-            <div class="meteo-forecast-weekday">${day}</div> 
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      // modifico l'indice a seconda di quanti gg voglio visualizzare
+      forecastHtml =
+        forecastHtml +
+        `<div class="meteo-forecast-day">
+            <div class="meteo-forecast-weekday">${formatDay(day.time)}</div> 
             <div class="meteo-forecast-icon"><img src="${
               day.condition.icon_url
             }"></div>
@@ -101,6 +111,7 @@ function displayForecast(response) {
               )}°C</div>
             </div>
        </div>`; //in HTML avrei avuto questa struttura per ogni gg del forecast ma sarebbe overingegnerizzato, perciò la utilizzo per riempire la variabile vuota creata prima
+    }
   });
 
   let forecastDisplayed = document.querySelector("#forecast"); //chiamo l'id in HTML per associarlo a JS

@@ -129,7 +129,8 @@ p {
 }
 
 .meteo-forecast-icon {
-  width: 20px;
+  width: 2px;
+  text-align: center;
 }
 
 .meteo-forecast-minmax {
